@@ -4,19 +4,19 @@ import it.unibs.fp.mylib.InputDati;
 
 /**
  * Classe istanziabile che implementa le creature Tamagotchi.
- * @author Simone
+ * @author Simone Macobatti
  *
  */
 public class Tamagotchi extends CreaturaStimolabile{
 	
 	
-	protected String nome;
-	protected int soddis_aff;
-	protected int sazieta;
-	protected boolean felice;
-	protected boolean infelice;
-	protected int carezze_ricevute;
-	protected int biscotti_ricevuti;
+	private String nome;
+	private int soddis_aff;
+	private int sazieta;
+	private boolean felice;
+	private boolean infelice;
+	private int carezze_ricevute;
+	private int biscotti_ricevuti;
 	
 	private static final int MAX_SAZIETA = 100;
 	private static final int MAX_SODDISFAZIONE = 100;
@@ -35,8 +35,11 @@ public class Tamagotchi extends CreaturaStimolabile{
 	private static final int MIN_SAZIETA_INIZIALE = 20;
 	private static final int MAX_SODDISFAZIONE_INIZIALE = 80;
 	private static final int MIN_SODDISFAZIONE_INIZIALE = 20;
-	private static final double SOGLIA_AUMENTO_SAZIETA = 20;
+	private static final int SOGLIA_AUMENTO_SAZIETA = 20;
 	private static final double TASSO_EFFICACIA_BISCOTTI = 1.1; // Ogni biscotto aumenta la sazietà del 10%
+	private static final int FATTORE_PENALITA_CAREZZE = 2;
+	private static final int FATTORE_PENALITA_BISCOTTI = 4;
+	
 	
 	private static final String INSERISCI_SODDISFAZIONE = "Inserisci un valore compreso tra "+MIN_SODDISFAZIONE_INIZIALE+" e "+MAX_SODDISFAZIONE_INIZIALE+" per "
 													+ "il grado di soddisfazione iniziale: ";
@@ -159,7 +162,7 @@ public class Tamagotchi extends CreaturaStimolabile{
 				nuovo = temp + SOGLIA_AUMENTO_SAZIETA;
 			if (setSazieta((int) nuovo)) { // solo se i biscotti hanno effetto...
 				setBiscotti_ricevuti(getBiscotti_ricevuti() + biscotti); // aggiungi i biscotti ricevuti
-				setSoddis_aff(getSoddis_aff() - biscotti/4); // aggiungi penalita'
+				setSoddis_aff(getSoddis_aff() - biscotti/FATTORE_PENALITA_BISCOTTI); // aggiungi penalita'
 				setBenessere();
 			}
 			
@@ -191,7 +194,7 @@ public class Tamagotchi extends CreaturaStimolabile{
 			int temp = getSoddis_aff();
 			if (setSoddis_aff(getSoddis_aff() + carezze)) { // solo se le carezze hanno effetto...
 				setCarezze_ricevute(getCarezze_ricevute() + getSoddis_aff() - temp); // aggiungi le carezze ricevute
-				setSazieta(getSazieta() - carezze/2); // aggiungi penalita'
+				setSazieta(getSazieta() - carezze/FATTORE_PENALITA_CAREZZE); // aggiungi penalita'
 			}
 			setBenessere();
 			return true;

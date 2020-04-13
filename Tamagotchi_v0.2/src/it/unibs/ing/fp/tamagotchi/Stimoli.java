@@ -9,7 +9,7 @@ import it.unibs.fp.mylib.MyMenu;
  * dei metodi di ricezione messi a disposizione da quest'ultimi. Ogni Tamagotchi (e anche eventuali sue future
  * sottoclassi) ereditano da CreaturaStimolabile; siamo dunque sicuri di avere a disposizione un certo 
  * set di metodi di ricezione.
- * @author Simone
+ * @author Simone Macobatti, Karim Boudarraja, Vipandeep Singh
  *
  */
 public class Stimoli {

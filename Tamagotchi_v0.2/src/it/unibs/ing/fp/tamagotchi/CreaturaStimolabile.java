@@ -3,7 +3,7 @@ package it.unibs.ing.fp.tamagotchi;
 /**
  * Classe astratta da cui eredita Tamagotchi in vista di una eventuale futura espansione dove ci potranno essere
  * più possibilità di stimolo e/o altre creature stimolabili oltre i Tamagotchi.
- * @author Simone
+ * @author Simone Macobatti
  *
  */
 public abstract class CreaturaStimolabile {

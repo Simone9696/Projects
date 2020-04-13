@@ -4,7 +4,7 @@ import it.unibs.fp.mylib.InputDati;
 
 /**
  * Classe di supporto per i metodi di stampa di brevi messaggi all'utente.
- * @author Simone
+ * @author Simone Macobatti, Vipandeep Singh
  *
  */
 public class SalutiFrasi {

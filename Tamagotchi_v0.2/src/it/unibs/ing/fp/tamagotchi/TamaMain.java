@@ -1,5 +1,10 @@
 package it.unibs.ing.fp.tamagotchi;
 
+/**
+ * 
+ * @author Simone Macobatti, Vipandeep Singh, Karim Boudarraja
+ *
+ */
 public class TamaMain {
 
 	private static boolean rigenera = false;
